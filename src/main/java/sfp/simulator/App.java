@@ -91,6 +91,7 @@ public class App
   	    		System.out.println(next);
   	    		JSONObject newSimulation = new JSONObject(next.getFullDocument());
   	    		MqttTopic newTopic = parser.JSONToTopic(newSimulation);
+            newTopic.setSimulationID(next.getDocumentKey().getObjectId("_id").getValue().toString());
   				  listOfTopics.add(newTopic);
           }
 

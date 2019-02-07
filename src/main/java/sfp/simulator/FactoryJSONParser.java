@@ -13,12 +13,10 @@ public class FactoryJSONParser {
 	// JSON TO DATA
 	public MqttTopic JSONToTopic(JSONObject jsonObject) {
 		boolean valid = jsonObject.getBoolean("isValid");
-		String simID = jsonObject.getJSONObject("_id").getString("$oid");
 		String topicID = jsonObject.getString("topicId");
 		String queueID = jsonObject.getString("queueId");
 		MqttTopic topic = new MqttTopic(topicID);
 		topic.setQueueID(queueID);
-		topic.setSimulationID(simID);
 		topic.setIsValid(valid);
 		JSONArray sen = jsonObject.getJSONArray("sensors");
 		for(int i=0; i<sen.length(); ++i) {
