@@ -47,8 +47,10 @@ public class App
     	MongoCursor<Document> oldCursor = table.find().iterator();
 
     	while (oldCursor.hasNext()) {
-  			JSONObject addedSimulation = new JSONObject(oldCursor.next().toJson());
+        		Document next = oldCursor.next();
+  			JSONObject addedSimulation = new JSONObject(next.toJson());
         MqttTopic loadedTopic = parser.JSONToTopic(addedSimulation);
+            loadedTopic.setSimulationID(next.getObjectId("_id").toString());
   			listOfTopics.add(loadedTopic);
   		}
 
