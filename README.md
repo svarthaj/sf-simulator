@@ -50,6 +50,9 @@ When adding new functions some steps must be taken:
 1. Add the switch key to the JSON parser ```src/main/java/sfp/simulator/FactoryJSONParser.java```.
 1. Add the class with the new function. Don't forget to make it extend the abstract class *Sensor* and to implement all its methods.
 
+### To-do's
+1. Make the data publishing on MQTT more accessible without Telegraph (timestamping, for example)
+
 ## Built With
 
 * [Maven](https://maven.apache.org/) - Dependency Management
